@@ -7,3 +7,4 @@ scipy==0.14.0
 six==1.7.3
 virtualenv==1.11.6
 wsgiref==0.1.2
+opencv
