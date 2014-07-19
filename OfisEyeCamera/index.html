@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content = "height = device-height, width = 420, user-scalable = no" /> 
+	<title>CEFA camera</title>
+	<script type="text/javascript" src="/webiopi.js"></script>
+	<script type="text/javascript">
+	function init() {
+		var button;
+			
+		button = webiopi().createButton("bt_up", "/\\", go_forward, stop);
+		$("#up").append(button);
+		
+		button = webiopi().createButton("bt_left", "<", turn_left, stop);
+		$("#middle").append(button);
+		
+		button = webiopi().createButton("bt_stop", "X", stop);
+		$("#middle").append(button);
+		
+		button = webiopi().createButton("bt_right", ">", turn_right, stop);
+		$("#middle").append(button);
+		
+		button = webiopi().createButton("bt_down", "\\/", go_backward, stop);
+		$("#down").append(button);
+		
+		button = webiopi().createButton("servo_y_aum", "su", servo_y_aum);
+		$("#su").append(button);
+		
+		button = webiopi().createButton("servo_x_dim", "sx", servo_x_dim);
+		$("#medio").append(button);
+
+		button = webiopi().createButton("servo_center", "0", servo_center);
+		$("#medio").append(button);
+
+		button = webiopi().createButton("servo_x_aum", "dx", servo_x_aum);
+		$("#medio").append(button);
+
+		button = webiopi().createButton("servo_y_dim", "giu", servo_y_dim);
+		$("#giu").append(button);
+
+
+
+	}
+	
+	function go_forward() {
+		webiopi().callMacro("go_forward");
+	}
+		
+	function go_backward() {
+		webiopi().callMacro("go_backward");
+	}
+		
+	function turn_right() {
+		webiopi().callMacro("turn_right");
+	}
+		
+	function turn_left() {
+		webiopi().callMacro("turn_left");
+	}
+		
+	function stop() {
+		webiopi().callMacro("stop");
+	}
+	function servo_y_aum() {
+		webiopi().callMacro("servo_y_aum");
+	}
+	function servo_y_dim() {
+		webiopi().callMacro("servo_y_dim");
+	}
+	function servo_x_aum() {
+		webiopi().callMacro("servo_x_aum");
+	}
+	function servo_x_dim() {
+		webiopi().callMacro("servo_x_dim");
+	}
+	function servo_center() {
+		webiopi().callMacro("servo_center");
+	}
+
+	webiopi().ready(init);
+		
+	</script>
+	<style type="text/css">
+		button {
+			margin: 5px 5px 5px 5px;
+			width: 50px;
+			height: 50px;
+			font-size: 24pt;
+			font-weight: bold;
+			color: black;
+		}
+
+		input[type="range"] {
+			display: block;
+			width: 160px;
+			height: 45px;
+		}
+
+	</style>
+</head>
+<body>
+<table border=1 width=50%>
+<td>	
+<img src="http://192.168.2.2:8080/?action=stream" width="600" height="700" align="center">
+</td>
+<td>
+	<div id="content" align="center">
+		<div id="up"></div>
+		<div id="middle"></div>
+		<div id="down"></div>
+		<div id="su"></div>
+		<div id="medio"></div>
+		<div id="giu"></div>
+	</div>
+</td>
+<td>	
+<img src="http://192.168.2.2:8090/?action=stream" width="650" height="700" align="center">
+</td>
+<td>
+	<div id="content" align="center">
+		<div id="up"></div>
+		<div id="middle"></div>
+		<div id="down"></div>
+		<div id="su"></div>
+		<div id="medio"></div>
+		<div id="giu"></div>
+	</div>
+</td>
+</body>
+</html>
